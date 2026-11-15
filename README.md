@@ -14,3 +14,4 @@ C + makefile是不是有点老套 (笑)
 arg的解析： https://github.com/cofyc/argparse \
 矩阵运算： https://github.com/Amoiensis/Matrix_hub（v2.0.0，头文件在 `include/library/`，实现在 `src/library/`，License: Apache-2.0）\
 这个矩阵稍微改了一下，把c文件放在src里了, 消除了未用变量，把警告消除了
+hashmap : FNV-1a 64 位哈希, 不知道算不算依赖库 ()
