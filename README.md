@@ -9,3 +9,6 @@ https://differentiable.shouldbe.top/
 ### 语言
 C语言写成，我个人对OOP有很大的意见，但是也会使用一点函数表之类的手法 \
 C + makefile是不是有点老套 (笑)
+
+### 依赖库
+arg的解析： https://github.com/cofyc/argparse
