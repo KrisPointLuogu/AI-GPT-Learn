@@ -13,7 +13,7 @@ const char *const usage_arg[] = {
 struct argparse_option options_arg[] = {
     OPT_HELP(),
     OPT_GROUP("Basic:"),
-    OPT_FLOAT('r', "learning_rate", &learning_rate_opt, "Set learning rate equ [number float]."),
+    OPT_FLOAT('r', "learning_rate", &learning_rate_opt, "Set learning rate equ [number float].", NULL, 0, 0),
     OPT_END(),
 };
 
