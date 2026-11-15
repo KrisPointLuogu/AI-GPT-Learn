@@ -6,14 +6,14 @@
 static float learning_rate_opt;
 
 const char *const usage_arg[] = {
-    "set_learnrate [number(float)]",
+    "\n    set_learnrate [number(float)]",
     NULL,
 };
 
 struct argparse_option options_arg[] = {
     OPT_HELP(),
-    OPT_GROUP("Basic"),
-    OPT_FLOAT('r', "learning_rate", &learning_rate_opt, "set learning rate"),
+    OPT_GROUP("Basic:"),
+    OPT_FLOAT('r', "learning_rate", &learning_rate_opt, "Set learning rate equ [number float]."),
     OPT_END(),
 };
 
