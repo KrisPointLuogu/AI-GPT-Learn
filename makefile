@@ -1,12 +1,12 @@
 CC       := gcc
-CFLAGS   := -Wall -Wextra -O2
+CFLAGS   := -Wall -Wextra -O2 -Iinclude
 LDFLAGS  :=
 LDLIBS   := -lm
 
 TARGET   := ai-gpt.out
 BUILD    := build
 
-SRCS_C   := $(shell find . -name '*.c' 2>/dev/null)
+SRCS_C   := $(shell find src -name '*.c' 2>/dev/null)
 OBJS     := $(patsubst %.c,$(BUILD)/%.o,$(SRCS_C))
 DEPS     := $(OBJS:.o=.d)
 
