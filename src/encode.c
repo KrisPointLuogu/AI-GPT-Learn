@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#include <assert.h>
 
 static FILE *fp = NULL;
 
@@ -13,12 +14,7 @@ void encode_init()
     if (fp != NULL)
         return;
     fp = fopen(get_training_file(), "r");
-    if (fp == NULL)
-    {
-        perror("Well, there is a problem with the File IO.\n");
-        perror("Please check the permission or what.\n");
-        exit(1);
-    }
+    assert(fp != NULL);
 }
 
 char *encode_a_line(char *buf, int buf_size)
@@ -34,11 +30,7 @@ char *encode_a_line(char *buf, int buf_size)
 
 void encode_end()
 {
-    if (fp == NULL)
-    {
-        perror("Why the fp is the NULL?\n");
-        exit(1);
-    }
+    assert(fp != NULL);
     fclose(fp);
     fp = NULL;
 }
@@ -55,4 +47,19 @@ void encode_set_num(HashMap *hmap, char *data_line)
             hashmap_put(hmap, key, (void *)(intptr_t)(++__encode_number_list_cnt), NULL);
         }
     }
+}
+
+static void print_entry(const char *k, void *v, void *ctx)
+{
+    (void)ctx;
+    printf("%-12s => %ld\n", k, (long)(intptr_t)v);
+}
+
+void make_dictV(char *data_line, HashMap *number_list)
+{
+    // make dict
+    while ((encode_a_line(data_line, ENCODE_BUF_SIZE)) != NULL)
+        encode_set_num(number_list, data_line);
+
+    hashmap_foreach(number_list, print_entry, NULL);
 }

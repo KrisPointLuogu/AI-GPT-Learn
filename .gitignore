@@ -1,3 +1,6 @@
 # make 的产物
 build/
 ai-gpt.out
+
+# gdb
+.gdb_history

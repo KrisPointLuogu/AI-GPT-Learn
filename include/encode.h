@@ -11,4 +11,6 @@ void encode_end();
 
 void encode_set_num(HashMap *hmap, char *data_line);
 
+void make_dictV(char *, HashMap *);
+
 #endif // !ENCODE_H
